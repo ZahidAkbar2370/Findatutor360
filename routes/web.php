@@ -111,9 +111,11 @@ Route::get('/sell-book', function () {
 });
 
 Route::post("save-sell-book","Frontend\SellBookController@sell_book");
-Route::get('/buy-book', function () {
-    return view('Frontend/App/buy_book');
-});
+
+Route::get('buy-book',"Frontend\HomeController@buy_book");
+// Route::get('/buy-book', function () {
+//     return view('Frontend/App/buy_book');
+// });
 Route::post("search-book","Frontend\SearchController@search_book");
 Route::get('/ajax', function () {
     return view('ajax');

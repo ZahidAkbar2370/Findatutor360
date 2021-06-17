@@ -83,7 +83,13 @@
 
     <!-- post book now -->
     <div class="post_book">
+        @if(!empty(Auth::user()))
         <button class="btn btn-yellow post_btn">post book now <i class="fal fa-angle-right"></i> </button>
+        @else
+            <p>Only Tutor Can Add Book.Please Login as Tutor</p>
+            <button class="btn btn-yellow" data-toggle="modal" data-target="#loginmodel">post book now <i class="fal fa-angle-right"></i> </button>
+
+        @endif
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -92,7 +98,7 @@
                             <h3>post book now</h3>
                             <p>Fill all form field to go to next step</p>
                         </div>
-                        <form id="msform" method="POST" action="{{URL::to('save-sell-book')}}">
+                        <form id="msform" method="POST" action="{{URL::to('save-sell-book')}}" enctype="multipart/form-data">
                             @csrf
                             <!-- progressbar -->
                             <ul id="progressbar">
@@ -104,9 +110,9 @@
                             <fieldset>
                                 <div class="form-card">
                                     <h2 class="fs-title">Book Information</h2> 
-                                    <input type="text" class="form-control" placeholder="TITLE OF BOOK" name="title_of_book">
-                                    <input type="text" class="form-control" placeholder="AUTHOR" name="author">
-                                    <input type="text" class="form-control" placeholder="ISBN (Optional)" name="isbn">
+                                    <input type="text" class="form-control" placeholder="TITLE OF BOOK" name="title_of_book" required="">
+                                    <input type="text" class="form-control" placeholder="AUTHOR" name="author" required="">
+                                    <input type="text" class="form-control" placeholder="ISBN (Optional)" name="isbn" >
                                 </div> 
                                 <input type="button" name="next" class="next action-button" value="Next Step" />
 
@@ -115,10 +121,10 @@
                                 <div class="form-card">
                                     <h2 class="fs-title">Book Information</h2> 
 
-                                    <input type="text" class="form-control" placeholder="YEAR PUBLISHED" name="year_published">
-                                    <input type="text" class="form-control" placeholder="CATEGORY (KNOW)/ UNKNOWN" name="category">
+                                    <input type="text" class="form-control" placeholder="YEAR PUBLISHED" name="year_published" required="">
+                                    <input type="text" class="form-control" placeholder="CATEGORY (KNOW)/ UNKNOWN" name="category" required="">
                                     <input type="text" class="form-control"
-                                        placeholder="CONDITION OF BOOK (PEN INDICATIONS,TORN PAGE,COLOURATION DUE TO OIL, PAINT SPILLAGE ETC) " name="condition_of_book">
+                                        placeholder="CONDITION OF BOOK (PEN INDICATIONS,TORN PAGE,COLOURATION DUE TO OIL, PAINT SPILLAGE ETC) " name="condition_of_book" required="">
                                 </div> 
                                 <input type="button" name="previous" class="previous action-button-previous"
                                     value="Previous" /> 
@@ -131,8 +137,9 @@
                                     
 
                                     <div class="upload_file">
+                                        <!-- <input type="file" name="upload_picture"> -->
                                         <button class="btn">UPLOAD PICTURE</button>
-                                        <input type="file" class="form-control" placeholder="UPLOAD PICTURE" name="upload_picture">
+                                        <input type="file" class="form-control" placeholder="UPLOAD PICTURE" name="upload_picture" required="">
                                     </div>
 
                                     <input type="text" class="form-control">
@@ -148,12 +155,14 @@
                                     <div class="row">
                                         <div class="col success_img"> 
                                             <img src="https://img.icons8.com/color/96/000000/ok--v2.png"
-                                                class="fit-image"> 
+                                                class="fit-image">
+                                                 
                                         </div>
                                     </div> 
                                     <div class="row justify-content-center">
                                         <div class="col-7 text-center">
                                             <h5>You Have Successfully POST BOOK</h5>
+
                                         </div>
                                     </div>
                                 </div>

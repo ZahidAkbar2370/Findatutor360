@@ -51,7 +51,7 @@ class SearchController extends Controller
     {
         $search = DB::select("select * from sell_book where title_of_book LIKE '%$request->search%' or author Like '%$request->search%'");
 
-        print_r($search);
-        die();
+        // dd($search);
+        return view("Frontend/App/buy_book",["searched_book" => $search]);
     }
 }

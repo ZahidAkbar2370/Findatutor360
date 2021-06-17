@@ -1,5 +1,7 @@
-    @extends('Frontend/App/layout')
+@extends('Frontend/App/layout')
 @section('user_layout')
+
+
 <script src="//code.tidio.co/n4wn2mpbpnrwhsn7wqqccjjecb9gcrlj.js"></script>
 	<!-- Hero -->
     <section class="hero hero--buy_book">
@@ -87,212 +89,40 @@
         <span class="shape-1"> <img src="public/assets/frontend/images/bg-dot-shape.svg" alt="bg-shape"> </span>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                @if(!empty($searched_book))
+                @foreach($searched_book as $searched)
+                <div class="col-md-6">
                     <a href="#" class="bookShowcase--card">
                         <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-1.svg" alt="book-1.svg">
+                            <img src="public/images/thumbnail/{{$searched->picture}}"  style="width:300px;height: 150px;">
                         </div>
                         <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
+                            <h3>{{$searched->title_of_book}}</h3>
+                            <p>Author:{{$searched->author}}</p>
+                            <p>Category:{{$searched->category}}</p>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
-                        <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-1.svg" alt="book-1.svg">
-                        </div>
-                        <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
-                        <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-1.svg" alt="book-1.svg">
-                        </div>
-                        <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
-                        <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-1.svg" alt="book-1.svg">
-                        </div>
-                        <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
+                @elseif(!empty($all_books))
 
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
+                @foreach($all_books as $searched)
+                <div class="col-md-6">
+                    <a class="bookShowcase--card">
                         <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-1.svg" alt="book-1.svg">
+                            <img src="public/images/thumbnail/{{$searched->picture}}"  style="width:300px;height: 150px;">
                         </div>
                         <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
+                            <h3>{{$searched->title_of_book}}</h3>
+                            <p>Author:{{$searched->author}}</p>
+                            <p>Category:{{$searched->category}}</p>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
-                        <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-2.svg" alt="book-1.svg">
-                        </div>
-                        <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
-                        <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-1.svg" alt="book-1.svg">
-                        </div>
-                        <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
-                        <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-2.svg" alt="book-1.svg">
-                        </div>
-                        <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
-                        <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-1.svg" alt="book-1.svg">
-                        </div>
-                        <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
-                        <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-3.svg" alt="book-1.svg">
-                        </div>
-                        <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
-                        <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-1.svg" alt="book-1.svg">
-                        </div>
-                        <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
-                        <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-1.svg" alt="book-1.svg">
-                        </div>
-                        <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
 
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
-                        <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-4.svg" alt="book-1.svg">
-                        </div>
-                        <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
-                        <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-1.svg" alt="book-1.svg">
-                        </div>
-                        <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
-                        <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-1.svg" alt="book-1.svg">
-                        </div>
-                        <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
-                        <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-2.svg" alt="book-1.svg">
-                        </div>
-                        <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="bookShowcase--card">
-                        <div class="bookShowcase--card__cover">
-                            <img src="public/assets/frontend/images/books/book-3.svg" alt="book-1.svg">
-                        </div>
-                        <div class="bookShowcase--card__desc">
-                            <h3>Book Title Here</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur fermentum.
-                            </p>
-                        </div>
-                    </a>
-                </div>
+                @endif
+               
 
             </div>
         </div>

@@ -8,9 +8,15 @@ use App\Models\User;
 use App\Models\Course;
 use App\Models\Batch;
 use DB;
-
+use App\Models\SellBook;
 class HomeController extends Controller
 {
+    public function buy_book()
+    {
+        $all_books = SellBook::all();
+
+        return view("Frontend/App/buy_book",["all_books" => $all_books]);
+    }
     public function create_search(Request $request)
     {
         $all_courses = Course::all();
